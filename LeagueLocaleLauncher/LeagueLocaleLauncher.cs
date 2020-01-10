@@ -130,6 +130,10 @@ namespace LeagueLocaleLauncher
 
         private void LaunchButton_Click(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Minimized;
+            NotifyIcon.Visible = true;
+            this.Hide();
+
             LeagueClientSettings.SetRegion(Config.Loaded.Region.ToString());
 
             var league = new Process();

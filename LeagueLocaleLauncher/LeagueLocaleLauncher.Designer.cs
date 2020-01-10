@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LeagueLocaleLauncher));
             this.RegionComboBox = new System.Windows.Forms.ComboBox();
             this.LanguageComboBox = new System.Windows.Forms.ComboBox();
@@ -40,6 +41,7 @@
             this.MinimizeButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.FunctionBorderPanel = new System.Windows.Forms.Panel();
+            this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.FunctionPanel.SuspendLayout();
             this.TitleBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
@@ -205,6 +207,10 @@
             this.FunctionBorderPanel.Size = new System.Drawing.Size(311, 136);
             this.FunctionBorderPanel.TabIndex = 12;
             // 
+            // NotifyIcon
+            // 
+            this.NotifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("NotifyIcon.Icon")));
+            // 
             // LeagueLocaleLauncher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,6 +244,7 @@
         private System.Windows.Forms.Panel TitleBarPanel;
         private System.Windows.Forms.Panel FunctionBorderPanel;
         private System.Windows.Forms.PictureBox LogoPictureBox;
+        private System.Windows.Forms.NotifyIcon NotifyIcon;
     }
 }
 
