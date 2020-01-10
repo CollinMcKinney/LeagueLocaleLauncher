@@ -13,27 +13,27 @@ namespace LeagueLocaleLauncher
         {
             InitializeComponent();
 
-            var culture = CultureInfo.CurrentCulture;
+            CultureInfo.CurrentCulture = new CultureInfo(CultureInfo.CurrentCulture.TwoLetterISOLanguageName);
 
             var config = Config.Load();
             
-            RegionLabel.Text = Translate(culture, REGION);
+            RegionLabel.Text = Translate(REGION);
             foreach (var region in Enum.GetNames(typeof(Region)))
                 RegionComboBox.Items.Add(new ComboBoxItem(region));
             RegionComboBox.SelectedIndex = (int)config.Region;
 
-            LanguageLabel.Text = Translate(culture, LANGUAGE);
+            LanguageLabel.Text = Translate(LANGUAGE);
             foreach (var language in Enum.GetNames(typeof(Language)))
                 LanguageComboBox.Items.Add(new ComboBoxItem(language));
             LanguageComboBox.SelectedIndex = (int)config.Language;
 
-            new ToolTip().SetToolTip(MinimizeButton, Translate(culture, MINIMIZE_TT));
-            new ToolTip().SetToolTip(CloseButton, Translate(culture, CLOSE_TT));
-            new ToolTip().SetToolTip(RegionLabel, Translate(culture, REGION_TT));
-            new ToolTip().SetToolTip(RegionComboBox, Translate(culture, REGION_TT));
-            new ToolTip().SetToolTip(LanguageLabel, Translate(culture, LANGUAGE_TT));
-            new ToolTip().SetToolTip(LanguageComboBox, Translate(culture, LANGUAGE_TT));
-            new ToolTip().SetToolTip(LaunchButton, Translate(culture, LAUNCH_TT));
+            new ToolTip().SetToolTip(MinimizeButton, Translate(MINIMIZE_TT));
+            new ToolTip().SetToolTip(CloseButton, Translate(CLOSE_TT));
+            new ToolTip().SetToolTip(RegionLabel, Translate(REGION_TT));
+            new ToolTip().SetToolTip(RegionComboBox, Translate(REGION_TT));
+            new ToolTip().SetToolTip(LanguageLabel, Translate(LANGUAGE_TT));
+            new ToolTip().SetToolTip(LanguageComboBox, Translate(LANGUAGE_TT));
+            new ToolTip().SetToolTip(LaunchButton, Translate(LAUNCH_TT));
         }
 
         private void CloseButton_MouseEnter(object sender, EventArgs e)

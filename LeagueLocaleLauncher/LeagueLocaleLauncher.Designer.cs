@@ -82,24 +82,25 @@
             // 
             // RegionLabel
             // 
-            this.RegionLabel.AutoSize = true;
+            this.RegionLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.RegionLabel.Font = new System.Drawing.Font("Impact", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(126)))), ((int)(((byte)(126)))));
-            this.RegionLabel.Location = new System.Drawing.Point(54, 17);
+            this.RegionLabel.Location = new System.Drawing.Point(3, 18);
             this.RegionLabel.Name = "RegionLabel";
-            this.RegionLabel.Size = new System.Drawing.Size(39, 15);
+            this.RegionLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.RegionLabel.Size = new System.Drawing.Size(90, 15);
             this.RegionLabel.TabIndex = 5;
             this.RegionLabel.Text = "REGION";
             this.RegionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // LanguageLabel
             // 
-            this.LanguageLabel.AutoSize = true;
+            this.LanguageLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.LanguageLabel.Font = new System.Drawing.Font("Impact", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LanguageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(126)))), ((int)(((byte)(126)))));
-            this.LanguageLabel.Location = new System.Drawing.Point(41, 44);
+            this.LanguageLabel.Location = new System.Drawing.Point(6, 45);
             this.LanguageLabel.Name = "LanguageLabel";
-            this.LanguageLabel.Size = new System.Drawing.Size(52, 15);
+            this.LanguageLabel.Size = new System.Drawing.Size(87, 15);
             this.LanguageLabel.TabIndex = 6;
             this.LanguageLabel.Text = "LANGUAGE";
             this.LanguageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -218,7 +219,6 @@
             this.Name = "LeagueLocaleLauncher";
             this.Text = "League Locale Launcher";
             this.FunctionPanel.ResumeLayout(false);
-            this.FunctionPanel.PerformLayout();
             this.TitleBarPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).EndInit();
             this.FunctionBorderPanel.ResumeLayout(false);

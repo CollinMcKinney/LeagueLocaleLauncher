@@ -14,7 +14,7 @@ namespace LeagueLocaleLauncher
 
         public override string ToString()
         {
-            return Translation.Translate(CultureInfo.CurrentCulture, Value);
+            return Translation.Translate(Value);
         }
     }
 }

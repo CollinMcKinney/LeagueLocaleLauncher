@@ -17,17 +17,17 @@ namespace LeagueLocaleLauncher
             Translations[word][cultureInfo.LCID] = translation;
         }
 
-        public static string Translate(CultureInfo cultureInfo, string word)
+        public static string Translate(string word)
         {
             word = word.ToUpperInvariant();
             if (Translations.TryGetValue(word, out Dictionary<int, string> median))
             {
-                if (median.TryGetValue(cultureInfo.LCID, out string translation))
+                if (median.TryGetValue(CultureInfo.CurrentCulture.LCID, out string translation))
                     return translation;
                 else
                 {
                     //throw new WarningException($"No translation of `{word}` available for `{cultureInfo.DisplayName}`. Falling back to `{new CultureInfo("en-US").DisplayName}`");
-                    if (median.TryGetValue(new CultureInfo("en-US").LCID, out translation))
+                    if (median.TryGetValue(new CultureInfo("en").LCID, out translation))
                         return translation;
                 }
             }
@@ -81,48 +81,92 @@ namespace LeagueLocaleLauncher
 
         static Translation()
         {
-            #region ENGLISH (UNITED STATES)
-            var en_US = new CultureInfo("en-US");
-            Add(en_US, REGION, "REGION");
-            Add(en_US, BR, "Brazil");
-            Add(en_US, EUNE, "EU Nordic and East");
-            Add(en_US, EUW, "EU West");
-            Add(en_US, JP, "Japan");
-            Add(en_US, KR, "Korea");
-            Add(en_US, LA1, "Latin America North");
-            Add(en_US, LA2, "Latin America South");
-            Add(en_US, NA, "North America");
-            Add(en_US, OC1, "Oceania");
-            Add(en_US, PBE, "PBE");
-            Add(en_US, RU, "Russia");
-            Add(en_US, TR, "Turkey");
+            #region ENGLISH
+            var en = new CultureInfo("en");
+            Add(en, REGION, "REGION");
+            Add(en, BR, "Brazil");
+            Add(en, EUNE, "EU Nordic and East");
+            Add(en, EUW, "EU West");
+            Add(en, JP, "Japan");
+            Add(en, KR, "Korea");
+            Add(en, LA1, "Latin America North");
+            Add(en, LA2, "Latin America South");
+            Add(en, NA, "North America");
+            Add(en, OC1, "Oceania");
+            Add(en, PBE, "PBE");
+            Add(en, RU, "Russia");
+            Add(en, TR, "Turkey");
 
-            Add(en_US, LANGUAGE, "LANGUAGE");
-            Add(en_US, CHINESE_CHINESE_SIMPLIFIED, "Chinese (Simplified)");
-            Add(en_US, CZECH_CZECH_REPUBLIC, "Czech (Czech Republic)");
-            Add(en_US, GERMAN_GERMANY, "German (Germany)");
-            Add(en_US, GREEK_GREECE, "Greek (Greece)");
-            Add(en_US, ENGLISH_AUSTRALIA, "English (Australia)");
-            Add(en_US, ENGLISH_UNITED_KINGDOM, "English (United Kingdom)");
-            Add(en_US, ENGLISH_UNITED_STATES, "English (United States)");
-            Add(en_US, SPANISH_SPAIN, "Spanish (Spain)");
-            Add(en_US, SPANISH_MEXICO, "Spanish (Mexico)");
-            Add(en_US, FRENCH_FRANCE, "French (France)");
-            Add(en_US, HUNGARIAN_HUNGARY, "Hungarian (Hungary)");
-            Add(en_US, ITALIAN_ITALY, "Italian (Italy)");
-            Add(en_US, JAPANESE_JAPAN, "Japanese (Japan)");
-            Add(en_US, KOREAN_KOREA, "Korean (Korea)");
-            Add(en_US, POLISH_POLAND, "Polish (Poland)");
-            Add(en_US, PORTUGUESE_BRAZIL, "Portuguese (Brazil)");
-            Add(en_US, ROMANIAN_ROMANIA, "Romanian (Romania)");
-            Add(en_US, RUSSIAN_RUSSIA, "Russian (Russia)");
-            Add(en_US, TURKISH_TURKEY, "Turkish (Turkey)");
+            Add(en, LANGUAGE, "LANGUAGE");
+            Add(en, CHINESE_CHINESE_SIMPLIFIED, "Chinese (Simplified)");
+            Add(en, CZECH_CZECH_REPUBLIC, "Czech (Czech Republic)");
+            Add(en, GERMAN_GERMANY, "German (Germany)");
+            Add(en, GREEK_GREECE, "Greek (Greece)");
+            Add(en, ENGLISH_AUSTRALIA, "English (Australia)");
+            Add(en, ENGLISH_UNITED_KINGDOM, "English (United Kingdom)");
+            Add(en, ENGLISH_UNITED_STATES, "English (United States)");
+            Add(en, SPANISH_SPAIN, "Spanish (Spain)");
+            Add(en, SPANISH_MEXICO, "Spanish (Mexico)");
+            Add(en, FRENCH_FRANCE, "French (France)");
+            Add(en, HUNGARIAN_HUNGARY, "Hungarian (Hungary)");
+            Add(en, ITALIAN_ITALY, "Italian (Italy)");
+            Add(en, JAPANESE_JAPAN, "Japanese (Japan)");
+            Add(en, KOREAN_KOREA, "Korean (Korea)");
+            Add(en, POLISH_POLAND, "Polish (Poland)");
+            Add(en, PORTUGUESE_BRAZIL, "Portuguese (Brazil)");
+            Add(en, ROMANIAN_ROMANIA, "Romanian (Romania)");
+            Add(en, RUSSIAN_RUSSIA, "Russian (Russia)");
+            Add(en, TURKISH_TURKEY, "Turkish (Turkey)");
 
-            Add(en_US, MINIMIZE_TT, "Minimize");
-            Add(en_US, CLOSE_TT, "Close");
-            Add(en_US, REGION_TT, "Select the region you want to play in");
-            Add(en_US, LANGUAGE_TT, "Select the language you want the game to use");
-            Add(en_US, LAUNCH_TT, "Launch the game with the specified settings");
+            Add(en, MINIMIZE_TT, "Minimize");
+            Add(en, CLOSE_TT, "Close");
+            Add(en, REGION_TT, "Select the region you want to play in");
+            Add(en, LANGUAGE_TT, "Select the language you want the game to use");
+            Add(en, LAUNCH_TT, "Launch the game with the specified settings");
+            #endregion
+
+            #region SPANISH
+            var es = new CultureInfo("es");
+            Add(es, REGION, "REGIÓN");
+            Add(es, BR, "Brasil");
+            Add(es, EUNE, "EU Norte y Este");
+            Add(es, EUW, "EU Oeste");
+            Add(es, JP, "Japón");
+            Add(es, KR, "Corea");
+            Add(es, LA1, "Latinoamérica Norte");
+            Add(es, LA2, "Latinoamérica Sur");
+            Add(es, NA, "Norteamérica ");
+            Add(es, OC1, "Oceanía");
+            Add(es, PBE, "BETA");
+            Add(es, RU, "Rusia");
+            Add(es, TR, "Turquía");
+
+            Add(es, LANGUAGE, "IDIOMA");
+            Add(es, CHINESE_CHINESE_SIMPLIFIED, "Chino (Simplificado)");
+            Add(es, CZECH_CZECH_REPUBLIC, "Checo (República Checa)");
+            Add(es, GERMAN_GERMANY, "Alemán (Alemania)");
+            Add(es, GREEK_GREECE, "Griego (Grecia)");
+            Add(es, ENGLISH_AUSTRALIA, "Inglés(Australia)");
+            Add(es, ENGLISH_UNITED_KINGDOM, "Inglés (Reino Unido)");
+            Add(es, ENGLISH_UNITED_STATES, "Inglés (Estados Unidos)");
+            Add(es, SPANISH_SPAIN, "Español (España)");
+            Add(es, SPANISH_MEXICO, "Español (Mexico)");
+            Add(es, FRENCH_FRANCE, "Francés (Francia)");
+            Add(es, HUNGARIAN_HUNGARY, "Húngaro (Hungría)");
+            Add(es, ITALIAN_ITALY, "Italiano (Italia)");
+            Add(es, JAPANESE_JAPAN, "Japonés (Japón)");
+            Add(es, KOREAN_KOREA, "Coreano(Corea)");
+            Add(es, POLISH_POLAND, "Polaco(Polonia)");
+            Add(es, PORTUGUESE_BRAZIL, "Portugués (Brasil)");
+            Add(es, ROMANIAN_ROMANIA, "Rumano (Rumania)");
+            Add(es, RUSSIAN_RUSSIA, "Ruso (Rusia)");
+            Add(es, TURKISH_TURKEY, "Turco (Turquía)");
+
+            Add(es, MINIMIZE_TT, "Minimiza");
+            Add(es, CLOSE_TT, "Cerca");
+            Add(es, REGION_TT, "Selecciona la región en la que quieres jugar");
+            Add(es, LANGUAGE_TT, "Selecciona el idioma que quieres que use el juego");
+            Add(es, LAUNCH_TT, "Inicia el juego con la configuración especificada");
             #endregion
         }
     }
