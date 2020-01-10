@@ -131,7 +131,6 @@ namespace LeagueLocaleLauncher
         private void LaunchButton_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-            NotifyIcon.Visible = true;
             this.Hide();
 
             LeagueClientSettings.SetRegion(Config.Loaded.Region.ToString());
@@ -161,6 +160,7 @@ namespace LeagueLocaleLauncher
 
         _break:
             league.Start();
+            Application.Exit();
         }
 
         private void RegionComboBox_DrawItem(object sender, DrawItemEventArgs e)
