@@ -52,6 +52,7 @@ namespace LeagueLocaleLauncher
         public const string TR = nameof(Region.TR);
        
         public const string LANGUAGE = nameof(LANGUAGE);
+        public const string CHINESE_CHINESE_SIMPLIFIED = nameof(Language.CHINESE_SIMPLIFIED);
         public const string CZECH_CZECH_REPUBLIC = nameof(Language.CZECH_CZECH_REPUBLIC);
         public const string GERMAN_GERMANY = nameof(Language.GERMAN_GERMANY);
         public const string GREEK_GREECE = nameof(Language.GREEK_GREECE);
@@ -97,6 +98,7 @@ namespace LeagueLocaleLauncher
             Add(en_US, TR, "Turkey");
 
             Add(en_US, LANGUAGE, "LANGUAGE");
+            Add(en_US, CHINESE_CHINESE_SIMPLIFIED, "Chinese (Simplified)");
             Add(en_US, CZECH_CZECH_REPUBLIC, "Czech (Czech Republic)");
             Add(en_US, GERMAN_GERMANY, "German (Germany)");
             Add(en_US, GREEK_GREECE, "Greek (Greece)");

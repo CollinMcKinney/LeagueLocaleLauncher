@@ -21,6 +21,7 @@ namespace LeagueLocaleLauncher
 
     public enum Language
     {
+        CHINESE_SIMPLIFIED,
         CZECH_CZECH_REPUBLIC,
         GERMAN_GERMANY,
         GREEK_GREECE,
@@ -45,6 +46,7 @@ namespace LeagueLocaleLauncher
     {
         public static Dictionary<Language, string> Languages = new Dictionary<Language, string>
         {
+            { Language.CHINESE_SIMPLIFIED,      "zh_CN"},
             { Language.CZECH_CZECH_REPUBLIC,    "cs_CZ"},
             { Language.GERMAN_GERMANY,          "de_DE"},
             { Language.GREEK_GREECE,            "el_GR"},
