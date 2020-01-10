@@ -13,10 +13,11 @@ namespace LeagueLocaleLauncher
         {
             InitializeComponent();
 
+            var config = Config.Load();
+          
+            CultureInfo.CurrentCulture = new CultureInfo(config.ToolCulture);
             CultureInfo.CurrentCulture = new CultureInfo(CultureInfo.CurrentCulture.TwoLetterISOLanguageName);
 
-            var config = Config.Load();
-            
             RegionLabel.Text = Translate(REGION);
             foreach (var region in Enum.GetNames(typeof(Region)))
                 RegionComboBox.Items.Add(new ComboBoxItem(region));

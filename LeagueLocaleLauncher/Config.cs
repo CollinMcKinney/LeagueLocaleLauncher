@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
 using YamlDotNet.Serialization;
 
 namespace LeagueLocaleLauncher
@@ -9,6 +10,7 @@ namespace LeagueLocaleLauncher
 
         private const string ConfigFile = "config.yaml";
 
+        public string ToolCulture = CultureInfo.CurrentCulture.ToString();
         public Region Region = Region.NA;
         public Language Language = Language.ENGLISH_UNITED_STATES;
         public string LeagueClientSettingsPath = @"C:\Riot Games\League of Legends\Config\LeagueClientSettings.yaml";
