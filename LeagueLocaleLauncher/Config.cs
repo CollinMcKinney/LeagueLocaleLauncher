@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using YamlDotNet.Serialization;
 
@@ -15,6 +16,13 @@ namespace LeagueLocaleLauncher
         public Language Language = Language.ENGLISH_UNITED_STATES;
         public string LeagueClientSettingsPath = @"C:\Riot Games\League of Legends\Config\LeagueClientSettings.yaml";
         public string LeagueClientPath = @"C:\Riot Games\League of Legends\LeagueClient.exe";
+
+        public string[] LeagueProcessNames = new string[] 
+        {
+            "RiotClientCrashHandler",
+            "RiotClientServices",
+            "RiotClientUx",
+        };
 
         public void Save()
         {

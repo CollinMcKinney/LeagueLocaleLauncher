@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Globalization;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using static LeagueLocaleLauncher.Translation;
@@ -135,31 +136,16 @@ namespace LeagueLocaleLauncher
             this.Hide();
 
             LeagueClientSettings.SetRegion(Config.Loaded.Region.ToString());
+            
+            foreach (var leagueProcessName in Config.Loaded.LeagueProcessNames)
+                foreach (var process in Process.GetProcesses())
+                    if (process.ProcessName.ToLower().Contains(leagueProcessName.ToLower()))
+                        process.Kill();
 
             var league = new Process();
             league.StartInfo.FileName = Config.Loaded.LeagueClientPath;
             league.StartInfo.Arguments = $" --locale={Enumerations.Languages[Config.Loaded.Language]}";
             league.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-            league.Start();
-
-            // Riot does something weird when the client is launched with an updated
-            // region or language; it gets saved somewhere, but isn't used in the
-            // current instance of the client. Waiting for the client to load, then closing it,
-            // and then re-opening solves this.
-            // A better way of re-opening may be to use WMI for detection instead of constant polling.
-            while (true)
-            {
-                foreach (var process in Process.GetProcesses())
-                    if (process.ProcessName == "RiotClientUx")
-                    {
-                        process.Kill();
-                        Thread.Sleep(1000);
-                        goto _break;
-                    }
-                Thread.Sleep(100);
-            }
-
-        _break:
             league.Start();
             Application.Exit();
         }
