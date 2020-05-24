@@ -10,3 +10,4 @@ Join us on Discord for help/suggestions: https://discord.gg/vA4w7rn
 2. Done if everything works fine
 3. Error message? Go to **config.yaml**
 4. Change **LeagueClientSettingsPath** and **LeagueClientPath**
+ 
