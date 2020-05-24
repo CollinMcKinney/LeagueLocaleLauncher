@@ -17,12 +17,7 @@ namespace LeagueLocaleLauncher
         public string LeagueClientSettingsPath = @"C:\Riot Games\League of Legends\Config\LeagueClientSettings.yaml";
         public string LeagueClientPath = @"C:\Riot Games\League of Legends\LeagueClient.exe";
 
-        public string[] LeagueProcessNames = new string[] 
-        {
-            "RiotClientCrashHandler",
-            "RiotClientServices",
-            "RiotClientUx",
-        };
+        public HashSet<string> LeagueProcessNames = new HashSet<string> { };
 
         public void Save()
         {
@@ -33,7 +28,7 @@ namespace LeagueLocaleLauncher
             }
         }
 
-        public static Config Load()
+        public static void Load()
         {
             try
             {
@@ -42,15 +37,17 @@ namespace LeagueLocaleLauncher
                     Deserializer deserializer = new Deserializer();
                     var config = deserializer.Deserialize<Config>(reader);
                     Loaded = config;
-                    return config;
                 }
             }
             catch
             {
                 Loaded = new Config();
-                Loaded.Save();
-                return Loaded;
             }
+
+            Loaded.LeagueProcessNames.Add("RiotClientCrashHandler");
+            Loaded.LeagueProcessNames.Add("RiotClientServices");
+            Loaded.LeagueProcessNames.Add("RiotClientUx");
+            Loaded.Save();
         }
     }
 }

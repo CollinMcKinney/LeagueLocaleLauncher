@@ -14,20 +14,20 @@ namespace LeagueLocaleLauncher
         {
             InitializeComponent();
 
-            var config = Config.Load();
+            Config.Load();
           
-            CultureInfo.CurrentCulture = new CultureInfo(config.ToolCulture);
+            CultureInfo.CurrentCulture = new CultureInfo(Config.Loaded.ToolCulture);
             CultureInfo.CurrentCulture = new CultureInfo(CultureInfo.CurrentCulture.TwoLetterISOLanguageName);
 
             RegionLabel.Text = Translate(REGION);
             foreach (var region in Enum.GetNames(typeof(Region)))
                 RegionComboBox.Items.Add(new ComboBoxItem(region));
-            RegionComboBox.SelectedIndex = (int)config.Region;
+            RegionComboBox.SelectedIndex = (int)Config.Loaded.Region;
 
             LanguageLabel.Text = Translate(LANGUAGE);
             foreach (var language in Enum.GetNames(typeof(Language)))
                 LanguageComboBox.Items.Add(new ComboBoxItem(language));
-            LanguageComboBox.SelectedIndex = (int)config.Language;
+            LanguageComboBox.SelectedIndex = (int)Config.Loaded.Language;
 
             new ToolTip().SetToolTip(MinimizeButton, Translate(MINIMIZE_TT));
             new ToolTip().SetToolTip(CloseButton, Translate(CLOSE_TT));
