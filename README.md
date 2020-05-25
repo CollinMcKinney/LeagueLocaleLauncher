@@ -1,9 +1,8 @@
-# LeagueLocaleLauncher
+# LeagueLocaleLauncher [![Discord](https://img.shields.io/discord/713264229427445770?color=Blue&label=Join%20Us%20On%20Discord&style=for-the-badge)](https://discord.gg/vA4w7rn)
+
 A simple application that launches the League Of Legends launcher, with any Region &amp; Language combo (ex. Japanese on the NA server)
 
 ![Image description](https://i.imgur.com/c8bhvj4.png)
-
-# Join us on Discord for help/suggestions: https://discord.gg/vA4w7rn
 
 # Usage guide
 
