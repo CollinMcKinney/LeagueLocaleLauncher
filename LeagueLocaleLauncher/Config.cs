@@ -14,8 +14,12 @@ namespace LeagueLocaleLauncher
         public string ToolCulture = CultureInfo.CurrentCulture.ToString();
         public Region Region = Region.NA;
         public Language Language = Language.ENGLISH_UNITED_STATES;
-        public string LeagueClientSettingsPath = @"C:\Riot Games\League of Legends\Config\LeagueClientSettings.yaml";
-        public string LeagueClientPath = @"C:\Riot Games\League of Legends\LeagueClient.exe";
+        public string LeagueBasePath = @"C:\Riot Games\League of Legends\";
+
+        public string LeagueClientExecutable { get; } = "LeagueClient.exe";
+
+        public string LeagueClientSettingsPath => Path.Combine(LeagueBasePath, @"Config\LeagueClientSettings.yaml");
+        public string LeagueClientPath => Path.Combine(LeagueBasePath, LeagueClientExecutable);
 
         public HashSet<string> LeagueProcessNames = new HashSet<string> { };
 
