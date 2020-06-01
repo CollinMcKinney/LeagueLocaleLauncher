@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
@@ -10,11 +12,53 @@ namespace LeagueLocaleLauncher
 {
     public partial class LeagueLocaleLauncher : Form
     {
+        private const string _registryKey = @"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Riot Games, Inc\League of Legends";
+        private const string _registryName = "Location";
+
         public LeagueLocaleLauncher()
         {
             InitializeComponent();
 
             Config.Load();
+            
+            // TODO: Clean this up
+            if (!File.Exists(Config.Loaded.LeagueClientPath))
+            {
+                // League install path is invalid, set new path.
+                // Check registry for league install location
+                Config.Loaded.LeagueBasePath = Registry.GetValue(_registryKey, _registryName, Config.Loaded.LeagueClientPath) as string;
+
+                if (!File.Exists(Config.Loaded.LeagueClientPath))
+                {
+                    // League registry location is still invalid, manually setting path
+                    using (var folderBrowserDialog = new FolderBrowserDialog())
+                    {
+                        var result = folderBrowserDialog.ShowDialog();
+
+                        if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
+                        {
+                            var baseDirectory = folderBrowserDialog.SelectedPath;
+                            var files = Directory.GetFiles(baseDirectory);
+                            if (files.Select(x => Path.GetFileName(x)).Contains(Config.Loaded.LeagueClientExecutable))
+                            {
+                                Config.Loaded.LeagueBasePath = baseDirectory;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Closing application due to no valid location being selected.");
+                                Close();
+                            }
+                        } 
+                        else
+                        {
+                            MessageBox.Show("Closing application due to no valid location being selected.");
+                            Close();
+                        }
+                    }
+                }
+
+
+            }
           
             CultureInfo.CurrentCulture = new CultureInfo(Config.Loaded.ToolCulture);
             CultureInfo.CurrentCulture = new CultureInfo(CultureInfo.CurrentCulture.TwoLetterISOLanguageName);
