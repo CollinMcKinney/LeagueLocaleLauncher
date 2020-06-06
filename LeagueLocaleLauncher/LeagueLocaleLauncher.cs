@@ -26,7 +26,10 @@ namespace LeagueLocaleLauncher
             {
                 // League install path is invalid, set new path.
                 // Check registry for league install location
-                Config.Loaded.LeagueBasePath = Registry.GetValue(_registryKey, _registryName, Config.Loaded.LeagueClientPath) as string;
+                if (Registry.GetValue(_registryKey, _registryName, Config.Loaded.LeagueClientPath) is string registryValue)
+                {
+                    Config.Loaded.LeagueBasePath = registryValue;
+                }
 
                 if (!File.Exists(Config.Loaded.LeagueClientPath))
                 {
