@@ -33,9 +33,13 @@ namespace LeagueLocaleLauncher
 
                 if (!File.Exists(Config.Loaded.LeagueClientPath))
                 {
+                    MessageBox.Show("Could not determine where League of Legends is installed. Please select the League of Legends folder.");
+
                     // League registry location is still invalid, manually setting path
                     using (var folderBrowserDialog = new FolderBrowserDialog())
                     {
+                        folderBrowserDialog.Description = "Select the League of Legends folder";
+                        folderBrowserDialog.ShowNewFolderButton = false;
                         var result = folderBrowserDialog.ShowDialog();
 
                         if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
