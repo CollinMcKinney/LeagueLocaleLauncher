@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using YamlDotNet.Serialization;
+using YamlDotNet.Core;
+using System.Windows.Forms;
 
 namespace LeagueLocaleLauncher
 {
@@ -16,9 +19,13 @@ namespace LeagueLocaleLauncher
         public Language Language = Language.ENGLISH_UNITED_STATES;
         public string LeagueBasePath = @"C:\Riot Games\League of Legends\";
 
+        [YamlIgnoreAttribute]
         public string LeagueClientExecutable { get; } = "LeagueClient.exe";
 
+        [YamlIgnoreAttribute]
         public string LeagueClientSettingsPath => Path.Combine(LeagueBasePath, @"Config\LeagueClientSettings.yaml");
+
+        [YamlIgnoreAttribute]
         public string LeagueClientPath => Path.Combine(LeagueBasePath, LeagueClientExecutable);
 
         public HashSet<string> LeagueProcessNames = new HashSet<string> { };
@@ -43,8 +50,18 @@ namespace LeagueLocaleLauncher
                     Loaded = config;
                 }
             }
-            catch
+            catch (FileNotFoundException)
             {
+                Loaded = new Config();
+            }
+            catch (IOException)
+            {
+                MessageBox.Show(@"Could not read settings file. Using default settings.");
+                Loaded = new Config();
+            }
+            catch (YamlException)
+            {
+                MessageBox.Show(@"Could not parse settings file. Using default settings.");
                 Loaded = new Config();
             }
 
