@@ -132,9 +132,9 @@ namespace LeagueLocaleLauncher
             Add(de, EUW, "EU West");
             Add(de, JP, "Japan");
             Add(de, KR, "Korea");
-            Add(de, LA1, "Latein America Nord");
-            Add(de, LA2, "Latein America Süd");
-            Add(de, NA, "Nord America");
+            Add(de, LA1, "Latein Amerika Nord");
+            Add(de, LA2, "Latein Amerika Süd");
+            Add(de, NA, "Nord Amerika");
             Add(de, OC1, "Ozeanien");
             Add(de, PBE, "PBE");
             Add(de, RU, "Russland");
@@ -147,7 +147,7 @@ namespace LeagueLocaleLauncher
             Add(de, GREEK_GREECE, "Griechisch (Griechenladn)");
             Add(de, ENGLISH_AUSTRALIA, "Englisch (Australien)");
             Add(de, ENGLISH_UNITED_KINGDOM, "Englisch (Vereinigtes Königreich)");
-            Add(de, ENGLISH_UNITED_STATES, "Englisch (USA)");
+            Add(de, ENGLISH_UNITED_STATES, "Englisch (Vereinigte Staaten von Amerika)");
             Add(de, SPANISH_SPAIN, "Spanisch (Sapnien)");
             Add(de, SPANISH_MEXICO, "Spanisch (Mexiko)");
             Add(de, FRENCH_FRANCE, "Französisch (Frankreich)");
