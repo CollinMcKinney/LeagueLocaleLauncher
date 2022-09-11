@@ -14,7 +14,7 @@ A simple application that launches the League Of Legends launcher, with any Regi
 
 
 * (3) If something isn't working right:
-  * (a) Go to **config.yaml** which should be located next to your .exe (it won't exist until you run the launcher the first time).
+  * (a) Go to **config.yaml** which should be located next to your LeagueLocaleLauncher.exe (it won't exist until you run the launcher the first time).
   * (b) Change **LeagueClientSettingsPath** and **LeagueClientPath** to match the file paths in your League Of Legends install.
   * (c) Repeat step 2.
   * (d) If it still doesn't work, either leave an issue here on GitHub, or [![Discord](https://img.shields.io/discord/713264229427445770?color=Blue&label=Join%20Us%20On%20Discord&style=plastic)](https://discord.gg/vA4w7rn) and we'll be glad to help you.
