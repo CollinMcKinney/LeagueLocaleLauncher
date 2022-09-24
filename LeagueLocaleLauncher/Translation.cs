@@ -5,29 +5,29 @@ namespace LeagueLocaleLauncher
 {
     public static class Translation
     {
-        public static Dictionary<string, Dictionary<int, string>> Translations = new Dictionary<string, Dictionary<int, string>> { };
+        private readonly static Dictionary<string, Dictionary<int, string>> CulturalDictionary = new Dictionary<string, Dictionary<int, string>> { };
 
         public static void Add(CultureInfo cultureInfo, string word, string translation)
         {
             word = word.ToUpperInvariant();
 
-            if (!Translations.ContainsKey(word))
-                Translations[word] = new Dictionary<int, string> { };
+            if (!CulturalDictionary.ContainsKey(word))
+                CulturalDictionary[word] = new Dictionary<int, string> { };
 
-            Translations[word][cultureInfo.LCID] = translation;
+            CulturalDictionary[word][cultureInfo.LCID] = translation;
         }
 
         public static string Translate(string word)
         {
             word = word.ToUpperInvariant();
-            if (Translations.TryGetValue(word, out Dictionary<int, string> median))
+            if (CulturalDictionary.TryGetValue(word, out Dictionary<int, string> translations))
             {
-                if (median.TryGetValue(CultureInfo.CurrentCulture.LCID, out string translation))
+                if (translations.TryGetValue(CultureInfo.CurrentCulture.LCID, out string translation))
                     return translation;
                 else
                 {
                     //throw new WarningException($"No translation of `{word}` available for `{cultureInfo.DisplayName}`. Falling back to `{new CultureInfo("en-US").DisplayName}`");
-                    if (median.TryGetValue(new CultureInfo("en").LCID, out translation))
+                    if (translations.TryGetValue(new CultureInfo("en").LCID, out translation))
                         return translation;
                 }
             }
