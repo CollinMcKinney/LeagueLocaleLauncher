@@ -1,0 +1,19 @@
+{
+  "name": "LeagueLocaleLauncher",
+  "version": "2.0.0",
+  "main": "./dist/index.js",
+  "repository": "https://github.com/CollinMcKinney/LeagueLocaleLauncher.git",
+  "author": "CollinMcKinney <collinmckinney4@gmail.com>",
+  "license": "GPL-2.0-only",
+
+  "scripts": {
+    "build": "tsc",
+    "start": "yarn run build && electron ."
+  },
+
+  "devDependencies": {
+    "@types/electron": "^1.6.10",
+    "electron": "^21.1.0",
+    "typescript": "^4.8.4"
+  }
+}
