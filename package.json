@@ -1,9 +1,9 @@
 {
-  "name": "LeagueLocaleLauncher",
+  "name": "league-locale-launcher",
   "version": "2.0.0",
   "main": "./dist/index.js",
   "repository": "https://github.com/CollinMcKinney/LeagueLocaleLauncher.git",
-  "author": "CollinMcKinney <collinmckinney4@gmail.com>",
+  "author": "Collin McKinney <collinmckinney4@gmail.com>",
   "license": "GPL-2.0-only",
 
   "scripts": {
