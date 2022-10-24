@@ -6,6 +6,7 @@ A simple application that launches the League Of Legends client, with any Region
 ![Image description](https://i.imgur.com/c8bhvj4.png)
 
 # Building From Source
+* Building from source is for code tinkerers, if you just want to use the launcher and not worry about the code, jump to the **Usage Guide**.
 * The current default branch is "master-ts" - this is a W.I.P. cross-platform TypeScript conversion. Likely to be many build issues and missing functions for a while. Currently using yarn/npm from Visual Studio Code for building.
 * The previous release binaries are built off of the "old-cs" branch and this should be the branch you choose if you want to build the latest release yourself. Build with Visual Studio 2019.
 
